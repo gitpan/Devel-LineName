@@ -2,7 +2,7 @@ package Devel::LineName;
 use strict;
 use warnings;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 use Carp;
@@ -115,14 +115,18 @@ use() call.  The first sets the name of the line naming pragma that
 will be created, and the second must be a reference to the hash in
 which line numbers are to be placed.
 
-The line naming pragma must consist of word characters only.
+The line naming pragma must consist of word characters only.  Your
+choice of line naming pragma is a compromise between clarity and brevity.
+I like to use C<linename> when there's room, but if space is short then
+C<line> or even just C<l> may be better.  Be sure not the use the name
+of an existing Perl pragma or module.
 
 =head1 NAMING LINES
 
 To name a line, you add a call to the line naming pragma to the end
 of the line.  The argument is the name to be given to the line.
 
-You can specify a line offset as a second argument.  These three
+You can specify a line offset as a second argument; these three
 examples are all equivalent:
 
   # normal use

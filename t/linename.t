@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Carp;
-use Test::More tests => 6;
+use Test::More tests => 7;
 
 {
     my %Line;
@@ -83,5 +83,16 @@ END
         die 'baz';
     };
     like $@, qr/ line $Line{baz}\./, "linename on line above";
+}
+
+{
+    my %Line;
+    use Devel::LineName linename => \%Line;
+
+    sub foo {
+        return 17;  use linename 'fooreturn';
+    }
+
+    is foo(), 17, "linename doesn't interfere with return value";
 }
 
