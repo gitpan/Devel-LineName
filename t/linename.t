@@ -23,7 +23,9 @@ use Test::More tests => 7;
         outer_sub();      use linename 'outer_call';
     };
 
-    is $@, <<END, "DESCRIPTION example";
+    my $goterr = $@;
+    $goterr =~ s/[.]\n//g;
+    is $goterr, <<END, "DESCRIPTION example";
 woo at $0 line $Line{confess}
 \tmain::inner_sub() called at $0 line $Line{inner_call}
 \tmain::outer_sub() called at $0 line $Line{outer_call}
@@ -47,7 +49,9 @@ END
         outer_sub2();     use linename 'outer_call';
     };
 
-    is $@, <<END, "DESCRIPTION example repeated";
+    my $goterr = $@;
+    $goterr =~ s/[.]\n//g;
+    is $goterr, <<END, "DESCRIPTION example repeated";
 woo at $0 line $Line{confess}
 \tmain::inner_sub2() called at $0 line $Line{inner_call}
 \tmain::outer_sub2() called at $0 line $Line{outer_call}
