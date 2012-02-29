@@ -24,7 +24,7 @@ use Test::More tests => 7;
     };
 
     my $goterr = $@;
-    $goterr =~ s/[.]\n//g;
+    $goterr =~ s/[.]\n/\n/g;
     is $goterr, <<END, "DESCRIPTION example";
 woo at $0 line $Line{confess}
 \tmain::inner_sub() called at $0 line $Line{inner_call}
@@ -50,7 +50,7 @@ END
     };
 
     my $goterr = $@;
-    $goterr =~ s/[.]\n//g;
+    $goterr =~ s/[.]\n/\n/g;
     is $goterr, <<END, "DESCRIPTION example repeated";
 woo at $0 line $Line{confess}
 \tmain::inner_sub2() called at $0 line $Line{inner_call}

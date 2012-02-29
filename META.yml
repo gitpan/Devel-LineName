@@ -1,6 +1,6 @@
 ---
 name: Devel-LineName
-version: 0.03
+version: 0.04
 author:
   - 'Nick Cleaton <nick@cleaton.net>'
 abstract: give names to source code lines
@@ -19,6 +19,6 @@ meta-spec:
 provides:
   Devel::LineName:
     file: lib/Devel/LineName.pm
-    version: 0.03
+    version: 0.04
 resources:
   license: http://dev.perl.org/licenses/
